@@ -3,8 +3,19 @@ import PropTypes from 'prop-types';
 
 
 function Todo ({title, handleClick}) {
+	const handleBackspacePress = (event) => {
+		if (event.keyCode === 8) {
+			handleClick();
+		}
+	}
+
 	return (
-		<li className="TodoApp--list-item" onClick={handleClick} tabIndex={0}>
+		<li 
+			className="TodoApp--list-item" 
+			onClick={handleClick} 
+			onKeyDown={handleBackspacePress}
+			tabIndex={0}
+		>
 			<div className="TodoApp--list-item--clear">
 				&times;
 			</div>	
