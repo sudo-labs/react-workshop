@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Todo from './Todo';
+
+import TodoList from './TodoList';
 import './Todo.css';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: []
+      todos: [],
     };
   }
 
@@ -28,35 +30,42 @@ class App extends Component {
   }
 
   removeTodo = (todo) => {
-    const updatedTodos = this.state.todos;
+    this.setState(prevState => {
+      let updatedTodos = prevState.todos;
+      
+      if (updatedTodos.includes(todo)) {
+        updatedTodos.splice(updatedTodos.indexOf(todo), 1);
+      }
 
-    if (updatedTodos.includes(todo)) {
-      updatedTodos.splice(updatedTodos.indexOf(todo), 1);
-    }
-
-    this.setState({
-      todos: updatedTodos,
+      return {
+        todos: updatedTodos,
+      }
     })
+  }
+
+  handleEnterPress = (event) => {
+    if (event.keyCode === 13) {
+      this.addTodo();
+    }
   }
 
   render() {
     return (
-      <div className="App">
-        <h1>Todo list app</h1>
-        <input
-          type="text"
-          ref={(a) => this._todoInput = a}  
-          placeholder="enter todo"
-        />
-        <button
-          type="submit"
-          onClick={this.addTodo}
-        >
-          add
-        </button>
-        {this.state.todos.map(todo => 
-          <Todo key={todo.id} title={todo.title} handleClick={() => this.removeTodo(todo)} />
-        )}
+      <div className="TodoApp">
+        <h1>Todo List App</h1>
+        <div className="TodoApp--content">
+          <input
+            type="text"
+            ref={(a) => this._todoInput = a}  
+            className="TodoApp--input"
+            placeholder="enter task"
+            onKeyDown={this.handleEnterPress}
+          />
+          <button type="submit" className="TodoApp--button" onClick={this.addTodo} >
+            add
+          </button>
+          <TodoList todos={this.state.todos} handleTodoClick={this.removeTodo} />
+        </div>
       </div>
     );
   }

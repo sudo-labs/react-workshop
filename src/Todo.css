@@ -1,28 +1,114 @@
-.App {
+.TodoApp {
+  margin: 6em auto;
+
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1 {
+  font-size: 2.75em;
+  letter-spacing: 1px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.TodoApp--content {
+  max-width: 350px;
+  margin: 2em auto;
+}
+
+.TodoApp--input {
+  position: relative;
+
+  min-width: 66%;
+  min-height: 40px;
+  box-sizing: border-box;
+
+  padding: 0.5em 0.25em;
+  margin-right: 6%;
+
+  font-size: 16px;
+
+  border: none;
+  border-bottom: 2px solid #2A2A2A;
+}
+
+.TodoApp--input::placeholder {
+  color: #C6D0C3;
+}
+
+.TodoApp--input:hover, .TodoApp--input:focus {
+  border-bottom: 2px solid #DE5086;
+  outline: none;
+}
+
+.TodoApp--button {
+  min-width: 28%;
+  min-height: 40px;
+  box-sizing: border-box;
+
+  padding: 0.5em 2em;
+
+  font-size: 16px;
   color: white;
+  background-color: #DE5086;
+
+  border: 1px solid #DE5086;
+  border-radius: 3px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.TodoApp--button:hover, 
+.TodoApp--button:focus {
+  color: white;
+  border-color: #EC2C75;
+  background-color: #EC2C75;
+
+  cursor: pointer;
+  outline: none;
 }
 
-.App-intro {
-  font-size: large;
+.TodoApp--list {
+  padding: 0;
+  margin-top: 1.5em;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.TodoApp--list-item {
+  display: flex;
+  align-items: center;
+
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+
+  list-style: none;
+
+  border: 1px solid #C6D0C3;
+  border-radius: 3px;
+}
+
+.TodoApp--list-item:hover, 
+.TodoApp--list-item:focus {
+  border-color: black;
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+.TodoApp--list-item--clear {
+  flex-basis: 8%;
+  flex-grow: 0;
+
+  margin-right: 2%;
+  
+  color: #C6D0C3;
+}
+
+.TodoApp--list-item:hover .TodoApp--list-item--clear, 
+.TodoApp--list-item:focus .TodoApp--list-item--clear {
+  color: black;
+}
+
+.TodoApp--list-item--title {
+  flex-basis: 90%;
 }
