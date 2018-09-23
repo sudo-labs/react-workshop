@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Todo from './Todo';
+import TodoListItem from './TodoListItem';
 
 
 function TodoList ({todos, handleTodoClick}) {
 	return (
 		<ul className="TodoApp--list">
 			{todos.map(todo => 
-				<Todo 
+				<TodoListItem 
 					key={todo.id}
 					title={todo.title}
 					handleClick={() => handleTodoClick(todo)}

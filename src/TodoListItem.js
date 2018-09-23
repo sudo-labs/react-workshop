@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function Todo ({title, handleClick}) {
+function TodoListItem ({title, handleClick}) {
 	const handleBackspacePress = (event) => {
 		if (event.keyCode === 8) {
 			handleClick();
@@ -26,9 +26,9 @@ function Todo ({title, handleClick}) {
 	)
 };
 
-Todo.propTypes = {
+TodoListItem.propTypes = {
 	title: PropTypes.string.isRequired,
 	handleClick: PropTypes.func.isRequired,
 };
 
-export default Todo;
+export default TodoListItem;
