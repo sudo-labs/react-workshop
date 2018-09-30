@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function TodoListItem ({title, handleClick}) {
+function TodoListItem ({todo, removeTodo}) {
 	const handleBackspacePress = (event) => {
 		if (event.keyCode === 8) {
-			handleClick();
+			removeTodo(todo);
 		}
 	}
 
 	return (
 		<li 
 			className="TodoApp--list-item" 
-			onClick={handleClick} 
+			onClick={() => removeTodo(todo)} 
 			onKeyDown={handleBackspacePress}
 			tabIndex={0}
 		>
@@ -20,15 +20,18 @@ function TodoListItem ({title, handleClick}) {
 				&times;
 			</div>	
 			<div className="TodoApp--list-item--title">
-				{title}
+				{todo.title}
 			</div>
 		</li>
 	)
 };
 
 TodoListItem.propTypes = {
-	title: PropTypes.string.isRequired,
-	handleClick: PropTypes.func.isRequired,
+	todo: PropTypes.shape({
+		id: PropTypes.string,
+		title: PropTypes.string,
+	}).isRequired,
+	removeTodo: PropTypes.func.isRequired,
 };
 
 export default TodoListItem;

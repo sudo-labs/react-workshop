@@ -18,8 +18,6 @@ h1 {
 }
 
 .TodoApp--input {
-  position: relative;
-
   min-width: 66%;
   min-height: 40px;
   box-sizing: border-box;
@@ -100,7 +98,7 @@ h1 {
   flex-grow: 0;
 
   margin-right: 2%;
-  
+
   color: #C6D0C3;
 }
 

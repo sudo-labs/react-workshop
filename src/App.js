@@ -56,7 +56,7 @@ class App extends Component {
         <div className="TodoApp--content">
           <input
             type="text"
-            ref={(a) => this._todoInput = a}  
+            ref={(input) => this._todoInput = input}  
             className="TodoApp--input"
             placeholder="enter task"
             onKeyDown={this.handleEnterPress}
@@ -64,7 +64,7 @@ class App extends Component {
           <button type="submit" className="TodoApp--button" onClick={this.addTodo} >
             add
           </button>
-          <TodoList todos={this.state.todos} handleTodoClick={this.removeTodo} />
+          <TodoList todos={this.state.todos} removeTodo={this.removeTodo} />
         </div>
       </div>
     );
