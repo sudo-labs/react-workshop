@@ -17,11 +17,15 @@ class App extends Component {
 
     if (value) {
       this.setState(prevState => { 
+        let updatedTodos = prevState.todos;
+
+        updatedTodos.push({
+          id: `todo-${prevState.todos.length + 1}`,
+          title: value,
+        });
+
         return {
-          todos: prevState.todos.concat({
-            id: `todo-${prevState.todos.length + 1}`,
-            title: value,
-          })
+          todos: updatedTodos
         }
       })
 
@@ -64,7 +68,10 @@ class App extends Component {
           <button type="submit" className="TodoApp--button" onClick={this.addTodo} >
             add
           </button>
-          <TodoList todos={this.state.todos} removeTodo={this.removeTodo} />
+          <TodoList 
+            todos={this.state.todos} 
+            removeTodo={this.removeTodo} 
+          />
         </div>
       </div>
     );
