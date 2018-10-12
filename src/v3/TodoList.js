@@ -9,7 +9,7 @@ class TodoList extends Component {
 		const { todos, removeTodo } = this.props;
 
 		return (
-			<ul className="TodoApp--list">
+			<ul>
 				{todos.map(todo => 
 					<TodoListItem 
 						key={todo.id}

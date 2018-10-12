@@ -1,5 +1,6 @@
 .TodoApp {
   margin: 6em auto;
+  max-width: 350px;
 
   font-size: 16px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -12,12 +13,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-.TodoApp--content {
-  max-width: 350px;
-  margin: 2em auto;
-}
-
-.TodoApp--input {
+input {
   min-width: 66%;
   min-height: 40px;
   box-sizing: border-box;
@@ -31,16 +27,17 @@ h1 {
   border-bottom: 2px solid #2A2A2A;
 }
 
-.TodoApp--input::placeholder {
+input::placeholder {
   color: #C6D0C3;
 }
 
-.TodoApp--input:hover, .TodoApp--input:focus {
+input:hover, 
+input:focus {
   border-bottom: 2px solid #DE5086;
   outline: none;
 }
 
-.TodoApp--button {
+button {
   min-width: 28%;
   min-height: 40px;
   box-sizing: border-box;
@@ -55,8 +52,8 @@ h1 {
   border-radius: 3px;
 }
 
-.TodoApp--button:hover, 
-.TodoApp--button:focus {
+button:hover, 
+button:focus {
   color: white;
   border-color: #EC2C75;
   background-color: #EC2C75;
@@ -65,13 +62,13 @@ h1 {
   outline: none;
 }
 
-.TodoApp--list {
+ul {
   padding: 0;
   margin-top: 1.5em;
   text-align: left;
 }
 
-.TodoApp--list-item {
+li {
   display: flex;
   align-items: center;
 
@@ -84,16 +81,14 @@ h1 {
   border-radius: 3px;
 }
 
-.TodoApp--list-item:hover, 
-.TodoApp--list-item:focus {
+li:hover, 
+li:focus {
   border-color: black;
   cursor: pointer;
   outline: none;
 }
 
-
-
-.TodoApp--list-item--clear {
+li > span {
   flex-basis: 8%;
   flex-grow: 0;
 
@@ -102,11 +97,11 @@ h1 {
   color: #C6D0C3;
 }
 
-.TodoApp--list-item:hover .TodoApp--list-item--clear, 
-.TodoApp--list-item:focus .TodoApp--list-item--clear {
+li:hover > span, 
+li:focus > span {
   color: black;
 }
 
-.TodoApp--list-item--title {
+li > div {
   flex-basis: 90%;
 }

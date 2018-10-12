@@ -11,15 +11,14 @@ function TodoListItem ({todo, removeTodo}) {
 
 	return (
 		<li 
-			className="TodoApp--list-item" 
 			onClick={() => removeTodo(todo)} 
 			onKeyDown={handleKeyDown}
 			tabIndex={0}
 		>
-			<div className="TodoApp--list-item--clear">
+			<span>
 				&times;
-			</div>	
-			<div className="TodoApp--list-item--title">
+			</span>	
+			<div>
 				{todo.title}
 			</div>
 		</li>

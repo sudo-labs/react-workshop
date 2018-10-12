@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Todo.css';
+import './App.css';
 
 
 class App extends Component {
@@ -62,41 +62,36 @@ class App extends Component {
     return (
       <div className="TodoApp">
         <h1>Todo List App</h1>
-        <div className="TodoApp--content">
-          <input
-            type="text"
-            ref={(input) => this._todoInput = input}  
-            className="TodoApp--input"
-            placeholder="enter task"
-            onKeyDown={this.handleInputKeyDown}
-          />
-          <button 
-            type="submit" 
-            className="TodoApp--button" 
-            onClick={this.addTodo} 
-            onKeyPress={this.addTodo} 
-          >
-            add
-          </button>
-          <ul className="TodoApp--list">
-            {this.state.todos.map(todo => 
-              <li 
-                key={todo.id}
-                className="TodoApp--list-item" 
-                onClick={() => this.removeTodo(todo)} 
-                onKeyDown={(e) => this.handleTodoItemKeyDown(e, todo)}
-                tabIndex={0}
-              >
-                <div className="TodoApp--list-item--clear">
-                  &times;
-                </div>  
-                <div className="TodoApp--list-item--title">
-                  {todo.title}
-                </div>
-              </li>
-            )}
-          </ul>
-        </div>
+        <input
+          type="text"
+          ref={(input) => this._todoInput = input}  
+          placeholder="enter task"
+          onKeyDown={this.handleInputKeyDown}
+        />
+        <button 
+          type="submit" 
+          onClick={this.addTodo} 
+          onKeyPress={this.addTodo} 
+        >
+          add
+        </button>
+        <ul>
+          {this.state.todos.map(todo => 
+            <li 
+              key={todo.id}
+              onClick={() => this.removeTodo(todo)} 
+              onKeyDown={(e) => this.handleTodoItemKeyDown(e, todo)}
+              tabIndex={0}
+            >
+              <span>
+                &times;
+              </span>  
+              <div>
+                {todo.title}
+              </div>
+            </li>
+          )}
+        </ul>
       </div>
     );
   }

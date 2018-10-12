@@ -15,16 +15,15 @@ class TodoListItem extends Component {
  		const { todo, removeTodo } = this.props;
 
 		return (
-			<li 
-				className="TodoApp--list-item" 
+			<li
 				onClick={() => removeTodo(todo)} 
 				onKeyDown={this.handleKeyDown}
 				tabIndex={0}
 			>
-				<div className="TodoApp--list-item--clear">
+				<span>
 					&times;
-				</div>	
-				<div className="TodoApp--list-item--title">
+				</span>	
+				<div>
 					{todo.title}
 				</div>
 			</li>
