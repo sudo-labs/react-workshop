@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 function TodoListItem ({todo, removeTodo}) {
-	const handleBackspacePress = (event) => {
+	const handleKeyDown = (event) => {
 		if (event.keyCode === 8) {
 			removeTodo(todo);
 		}
@@ -13,7 +13,7 @@ function TodoListItem ({todo, removeTodo}) {
 		<li 
 			className="TodoApp--list-item" 
 			onClick={() => removeTodo(todo)} 
-			onKeyDown={handleBackspacePress}
+			onKeyDown={handleKeyDown}
 			tabIndex={0}
 		>
 			<div className="TodoApp--list-item--clear">

@@ -35,19 +35,13 @@ class App extends Component {
 
   removeTodo = (todo) => {
     this.setState(prevState => {
-      let updatedTodos = prevState.todos;
-      
-      if (updatedTodos.includes(todo)) {
-        updatedTodos.splice(updatedTodos.indexOf(todo), 1);
-      }
-
       return {
-        todos: updatedTodos,
+        todos: prevState.todos.filter(t => t !== todo),
       }
     })
   }
 
-  handleEnterPress = (event) => {
+  handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       this.addTodo();
     }
@@ -63,7 +57,7 @@ class App extends Component {
             ref={(input) => this._todoInput = input}  
             className="TodoApp--input"
             placeholder="enter task"
-            onKeyDown={this.handleEnterPress}
+            onKeyDown={this.handleKeyDown}
           />
           <button type="submit" className="TodoApp--button" onClick={this.addTodo} >
             add
