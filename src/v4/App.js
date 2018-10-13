@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import TodoList from './TodoList';
 import './App.css';
 
 
@@ -34,27 +35,15 @@ class App extends Component {
 
   removeTodo = (todo) => {
     this.setState(prevState => {
-      let updatedTodos = prevState.todos;
-      
-      if (updatedTodos.includes(todo)) {
-        updatedTodos.splice(updatedTodos.indexOf(todo), 1);
-      }
-
       return {
-        todos: updatedTodos,
+        todos: prevState.todos.filter(t => t !== todo),
       }
     })
   }
 
-  handleInputKeyDown = (event) => {
+  handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       this.addTodo();
-    }
-  }
-
-  handleTodoItemKeyDown = (event, todo) => {
-    if (event.keyCode === 8) {
-      this.removeTodo(todo);
     }
   }
 
@@ -66,32 +55,19 @@ class App extends Component {
           type="text"
           ref={(input) => this._todoInput = input}  
           placeholder="enter task"
-          onKeyDown={this.handleInputKeyDown}
+          onKeyDown={this.handleKeyDown}
         />
         <button 
-          type="submit" 
+          type="submit"
           onClick={this.addTodo} 
           onKeyPress={this.addTodo} 
         >
           add
         </button>
-        <ul>
-          {this.state.todos.map(todo => 
-            <li 
-              key={todo.id}
-              onClick={() => this.removeTodo(todo)} 
-              onKeyDown={(e) => this.handleTodoItemKeyDown(e, todo)}
-              tabIndex={0}
-            >
-              <span>
-                &times;
-              </span>  
-              <div>
-                {todo.title}
-              </div>
-            </li>
-          )}
-        </ul>
+        <TodoList 
+          todos={this.state.todos} 
+          removeTodo={this.removeTodo} 
+        />
       </div>
     );
   }

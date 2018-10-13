@@ -1,2 +1,2 @@
 # Final version of workshop content
-This version includes stateless functional components
+This version includes stateless functional components and PropTypes

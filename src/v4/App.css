@@ -1,0 +1,107 @@
+.TodoApp {
+  margin: 6em auto;
+  max-width: 350px;
+
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.75em;
+  letter-spacing: 1px;
+}
+
+input {
+  min-width: 66%;
+  min-height: 40px;
+  box-sizing: border-box;
+
+  padding: 0.5em 0.25em;
+  margin-right: 6%;
+
+  font-size: 16px;
+
+  border: none;
+  border-bottom: 2px solid #2A2A2A;
+}
+
+input::placeholder {
+  color: #C6D0C3;
+}
+
+input:hover, 
+input:focus {
+  border-bottom: 2px solid #DE5086;
+  outline: none;
+}
+
+button {
+  min-width: 28%;
+  min-height: 40px;
+  box-sizing: border-box;
+
+  padding: 0.5em 2em;
+
+  font-size: 16px;
+  color: white;
+  background-color: #DE5086;
+
+  border: 1px solid #DE5086;
+  border-radius: 3px;
+}
+
+button:hover, 
+button:focus {
+  color: white;
+  border-color: #EC2C75;
+  background-color: #EC2C75;
+
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  padding: 0;
+  margin-top: 1.5em;
+  text-align: left;
+}
+
+li {
+  display: flex;
+  align-items: center;
+
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+
+  list-style: none;
+
+  border: 1px solid #C6D0C3;
+  border-radius: 3px;
+}
+
+li:hover, 
+li:focus {
+  border-color: black;
+  cursor: pointer;
+  outline: none;
+}
+
+li > span {
+  flex-basis: 8%;
+  flex-grow: 0;
+
+  margin-right: 2%;
+
+  color: #C6D0C3;
+}
+
+li:hover > span, 
+li:focus > span {
+  color: black;
+}
+
+li > div {
+  flex-basis: 90%;
+}

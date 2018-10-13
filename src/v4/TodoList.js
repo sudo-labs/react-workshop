@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import TodoListItem from './TodoListItem';
 
@@ -21,13 +20,5 @@ class TodoList extends Component {
 		)
 	}
 }
-
-TodoList.propTypes = { 
-	todos: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.string,
-		title: PropTypes.string,
-	})).isRequired,
-	removeTodo: PropTypes.func.isRequired,
-};
 
 export default TodoList;

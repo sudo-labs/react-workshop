@@ -1,2 +1,2 @@
 # Version 3 of workshop content
-This version introduces componentization along with PropTypes
+This verison contains all functionality in one giant component

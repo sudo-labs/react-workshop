@@ -32,29 +32,9 @@ class App extends Component {
     }
   }
 
-  removeTodo = (todo) => {
-    this.setState(prevState => {
-      let updatedTodos = prevState.todos;
-      
-      if (updatedTodos.includes(todo)) {
-        updatedTodos.splice(updatedTodos.indexOf(todo), 1);
-      }
-
-      return {
-        todos: updatedTodos,
-      }
-    })
-  }
-
   handleInputKeyDown = (event) => {
     if (event.keyCode === 13) {
       this.addTodo();
-    }
-  }
-
-  handleTodoItemKeyDown = (event, todo) => {
-    if (event.keyCode === 8) {
-      this.removeTodo(todo);
     }
   }
 
@@ -76,25 +56,20 @@ class App extends Component {
           add
         </button>
         <ul>
-          {this.state.todos.map(todo => 
-            <li 
-              key={todo.id}
-              onClick={() => this.removeTodo(todo)} 
-              onKeyDown={(e) => this.handleTodoItemKeyDown(e, todo)}
-              tabIndex={0}
-            >
-              <span>
-                &times;
-              </span>  
-              <div>
-                {todo.title}
-              </div>
-            </li>
-          )}
+          {this.state.todos.map(makeListItem)}
         </ul>
       </div>
     );
   }
+
+}
+
+function makeListItem(todo) {
+  return (
+    <li key={todo.id}>
+      {todo.title} 
+    </li>
+  );
 }
 
 export default App;
