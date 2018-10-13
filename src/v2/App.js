@@ -61,7 +61,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 function makeListItem(todo) {

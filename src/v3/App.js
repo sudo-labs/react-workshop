@@ -34,14 +34,11 @@ class App extends Component {
 
   removeTodo = (todo) => {
     this.setState(prevState => {
-      let updatedTodos = prevState.todos;
       
-      if (updatedTodos.includes(todo)) {
-        updatedTodos.splice(updatedTodos.indexOf(todo), 1);
-      }
+      const filtered = prevState.todos.filter(t => t !== todo);
 
       return {
-        todos: updatedTodos,
+        todos: filtered,
       }
     })
   }
