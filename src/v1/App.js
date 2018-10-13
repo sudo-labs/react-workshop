@@ -1,72 +1,25 @@
 import React, { Component } from 'react';
 
-import TodoList from './TodoList';
 import './App.css';
 
-
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [],
-    };
-  }
 
-  addTodo = (title) => {
-    const value = this._todoInput.value;
-
-    if (value) {
-      this.setState(prevState => { 
-        let updatedTodos = prevState.todos;
-
-        updatedTodos.push({
-          id: `todo-${prevState.todos.length + 1}`,
-          title: value,
-        });
-
-        return {
-          todos: updatedTodos
-        }
-      })
-
-      this._todoInput.value = "";
-    }
-  }
-
-  removeTodo = (todo) => {
-    this.setState(prevState => {
-      return {
-        todos: prevState.todos.filter(t => t !== todo),
-      }
-    })
-  }
-
-  handleKeyDown = (event) => {
-    if (event.keyCode === 13) {
-      this.addTodo();
-    }
-  }
+  todos = ["Hi", "There", "How", "Are", "You"];
 
   render() {
     return (
       <div className="TodoApp">
         <h1>Todo List App</h1>
-        <div className="TodoApp--content">
-          <input
-            type="text"
-            ref={(input) => this._todoInput = input}  
-            className="TodoApp--input"
-            placeholder="enter task"
-            onKeyDown={this.handleKeyDown}
-          />
-          <button type="submit" className="TodoApp--button" onClick={this.addTodo} >
-            add
-          </button>
-          <TodoList 
-            todos={this.state.todos} 
-            removeTodo={this.removeTodo} 
-          />
-        </div>
+        <ul>
+          {this.todos.map(todo => 
+            <li 
+              key={todo}
+              tabIndex={0}
+            >
+              {todo}
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
